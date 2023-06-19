@@ -1,0 +1,15 @@
+#searchArea{
+    max-width: 700px;
+    padding: 40px;
+    box-shadow: 0 0 10px rgb(0,0,0);
+    border-radius: 50px;
+}
+#title::after{
+    content: " ";
+    height: 150px;
+    display: block;
+}
+
+h2{
+    font-size: 150%
+}

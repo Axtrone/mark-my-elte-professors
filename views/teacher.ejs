@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hu" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/teacher.css">
+    <title>ELTEprofs</title>
+</head>
+<body>
+    <div class="container my-2">
+        <h1 class="text-center mt-3 mb-4 display-5"><a href="/" class="text-decoration-none">MarkMy(ELTE)Professor Archive</a></h1>
+        <div class="row">
+            <div class="col-12 text-center col-sm-5">
+                <img src="../pic/prof-avatar.jpg" class="img-thumbnail mx-auto d-block w-50">
+                <h3 class="mt-2 mb-0"><%=tData.name%></h3>
+                <table class="table table-borderless w-auto mx-auto" id="mainScore">
+                    <tr>
+                        <th class="text-start fs-3 fst-italic fw-normal pt-1">Átlag pont</th>
+                        <td class="text-end fs-3 fw-bolder pt-1"><%=tData.mainscore%></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-12 col-sm-7">
+                <table class="table">
+                    <tr>
+                        <th>Követelmények teljesíthetősége</th>
+                        <td><%=tData.fulfillability%></td>
+                    </tr>
+                    <tr>
+                        <th>Tárgy hasznossága</th>
+                        <td><%=tData.usefullness%></td>
+                    </tr>
+                    <tr>
+                        <th>Segítőkészség</th>
+                        <td><%=tData.helpfullness%></td>
+                    </tr>
+                    <tr>
+                        <th>Felkészültség</th>
+                        <td><%=tData.preparation%></td>
+                    </tr>
+                    <tr>
+                        <th>Előadásmód</th>
+                        <td><%=tData.presentation%></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 mb-3">
+                <details>
+                    <summary class="fs-5 fw-bolder">
+                        Tanított tárgyak
+                    </summary>
+                    <p class="subjects"><%=tData.courses%></p>
+                </details>
+            </div>
+            <h1 class="mb-3">Értékelések</h1>
+            <table class="table scores">
+                <thead>
+                    <tr class="text-center">
+                        <th class="px-2">Követelmények teljesíthetősége</th>
+                        <th class="px-2">Tárgy hasznossága</th>
+                        <th class="px-2">Segítőkészség</th>
+                        <th class="px-2">Felkészültség</th>
+                        <th class="px-2">Előadásmód</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% revData.forEach(rev => { %>
+                        <tr class="fs-2 text-center table-group-divider">
+                            <td><%=rev.fulfillability%></td>
+                            <td><%=rev.usefullness%></td>
+                            <td><%=rev.helpfullness%></td>
+                            <td><%=rev.preparation%></td>
+                            <td><%=rev.presentation%></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <div>
+                                    <span class="m-0 fs-5 fw-bolder text-secondary"><%=rev.course%></span>
+                                    <span class="float-end fst-italic fw-light"><%=rev.date%></span>
+                                </div>
+                                <%=rev.text%>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

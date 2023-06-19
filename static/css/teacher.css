@@ -1,0 +1,26 @@
+.scores th{
+    font-size: 55%;
+}
+.container{
+    max-width: 700px;
+}
+table.scores {
+    table-layout: fixed;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+@media screen and (min-width: 600px){
+    .table-group-divider td{
+        font-size: 80%;
+    }
+    .scores th{
+        font-size: 100%;
+    }
+    h1{
+        font-size: 200%;
+    }
+    #mainScore th, #mainScore td{
+        padding-bottom: 0px;
+    }
+}
